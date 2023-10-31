@@ -1,5 +1,6 @@
 {
   "configurations": [
+
     {
       "name": "Debug Application",
       "cwd": "${workspaceFolder}/app",
@@ -24,6 +25,37 @@
       "device": "STM32F401RE",
       "runToEntryPoint": "main",
       "interface": "swd",
-    }
+    },
+    {
+      "name": "Debug STLink",
+      "cwd": "${workspaceRoot}/app",
+      "executable": "./firmware.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F446RE",
+      "interface": "swd",
+      "runToEntryPoint": "main", // else it starts at reset handler - not interested
+      "preLaunchTask": "build_debug", // configured in tasks.json
+      // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+      "svdFile": "", // Include svd to watch device peripherals
+      "swoConfig": {} // currently (v1.7.0) not supported
+  },
+  {
+      "name": "STlink attach",
+      "cwd": "${workspaceRoot}/app",
+      "executable": "./firmware.elf",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F446RE",
+      "interface": "swd",
+      "runToEntryPoint": "main", // else it starts at reset handler - not interested
+      "preLaunchTask": "Build all", // configured in tasks.json
+      // "preLaunchCommands": ["Build all"], // you can execute command instead of task
+      "svdFile": "", // Include svd to watch device peripherals
+      "swoConfig": {} // currently (v1.7.0) not supported
+  },
+
   ]
 }

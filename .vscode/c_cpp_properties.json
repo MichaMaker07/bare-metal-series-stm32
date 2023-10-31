@@ -3,16 +3,23 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/libopencm3/include"
             ],
             "defines": [
                 "STM32F4",
                 "__ARM_ARCH_7EM__"
             ],
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
-            "cStandard": "c99",
+            "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "gcc-arm"
+        },
+        {
+            "name": "STM32",
+            "includePath": [],
+            "defines": [],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc"
         }
     ],
     "version": 4

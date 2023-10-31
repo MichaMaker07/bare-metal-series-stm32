@@ -46,15 +46,20 @@ OBJCOPY		:= $(PREFIX)objcopy
 OBJDUMP		:= $(PREFIX)objdump
 GDB		:= $(PREFIX)gdb
 STFLASH		= $(shell which st-flash)
-OPT		:= -Os
-DEBUG		:= -ggdb3
-CSTD		?= -std=c99
+OPT		:= -O0
+# DEBUG		:= -ggdb3
+DEBUG += -g3 -gdwarf-2 # original: -g
+CSTD		?= -std=c11
 
 
 ###############################################################################
 # Source files
 
 OBJS		+= $(SRC_DIR)/$(BINARY).o
+OBJS		+= $(SRC_DIR)/core/system.o
+OBJS		+= $(SRC_DIR)/core/timer.o
+
+
 
 ###############################################################################
 # C flags
@@ -177,3 +182,7 @@ clean:
 .PHONY: images clean elf bin hex srec list
 
 -include $(OBJS:.o=.d)
+
+# Flash the STM32F4
+burn: elf bin
+	/usr/bin/st-flash write $(BINARY).bin 0x8000000

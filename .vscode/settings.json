@@ -10,6 +10,8 @@
     "pins.h": "c",
     "sync.h": "c",
     "ring-buffer.h": "c",
-    "flash_common_all.h": "c"
+    "flash_common_all.h": "c",
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "cortex-debug.stutilPath": "/usr/bin/st-util",
   }
 }

@@ -1,7 +1,7 @@
-#ifndef INC_COMMON_DEFINES_H
-#define INC_COMMON_DEFINES_H
+#ifndef COMMON_DEFINES_H
+#define COMMON_DEFINES_H
 
 #include <stdint.h>
 #include <stdbool.h>
 
-#endif // INC_COMMON_DEFINES_H
+#endif // COMMON_DEFINES_H
